@@ -5,8 +5,9 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
+import manageConcerts from './reducers/manageConcerts'
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(manageConcerts, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

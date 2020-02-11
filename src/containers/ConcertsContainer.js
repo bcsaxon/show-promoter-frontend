@@ -4,7 +4,7 @@ export class ConcertsContainer extends Component {
     render() {
         return (
             <div>
-                Concerts Container 
+                <h1> Concerts Container </h1>
             </div>
         );
     }

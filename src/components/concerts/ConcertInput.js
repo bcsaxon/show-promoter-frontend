@@ -21,6 +21,7 @@ export class ConcertInput extends Component {
   render() {
     return (
       <div className='concert-input'>
+        <h3>Input your concert below!</h3>
         <form className='concert-input-form' onSubmit={this.onSubmit}>
           <input
             type='text'

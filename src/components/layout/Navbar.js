@@ -12,6 +12,9 @@ const Navbar = props => {
                     <li>
                         <Link to='/about'>About</Link>
                     </li>
+                    <li>
+                        <Link to='/concerts'>Concerts</Link>
+                    </li>
                 </ul>
             </h1>
         </nav>

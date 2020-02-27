@@ -8,14 +8,6 @@ import Concert from './components/concerts/Concert';
 import About from './components/pages/About';
 
 const App = () => {
-
-
-  // Get all Concerts //
-  // async componentDidMount() {
-  //   const res = await axios.get('http://localhost:3000/concerts');
-  //   this.setState({ concerts: res.data });
-  // }
-
   //Concert Detail Page Get Request //
   // const getConcert = async id => {
   //   const res = await fetch(`/concerts/${id}`);
@@ -23,7 +15,6 @@ const App = () => {
   //   this.setState({ concert: res.data });
   // };
 
- 
   return (
     <Router>
       <>

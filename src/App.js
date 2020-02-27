@@ -8,15 +8,7 @@ import Concert from './components/concerts/Concert';
 import About from './components/pages/About';
 
 const App = () => {
-  // state = {
-  //   concerts: [],
-  //   concert: {}
-  // };
 
-  // componentDidMount() {
-  //   console.log('hi');
-  //   this.props.getConcerts()
-  // }
 
   // Get all Concerts //
   // async componentDidMount() {
@@ -25,13 +17,13 @@ const App = () => {
   // }
 
   //Concert Detail Page Get Request //
-  // getConcert = async id => {
-  //   const res = await axios.get(`http://localhost:3000/concerts/${id}`);
+  // const getConcert = async id => {
+  //   const res = await fetch(`/concerts/${id}`);
   //   console.log(res.data);
   //   this.setState({ concert: res.data });
   // };
 
-  // const { concerts, concert } = this.state;
+ 
   return (
     <Router>
       <>
@@ -48,17 +40,15 @@ const App = () => {
           />
           <Route exact path='/concerts' component={Concerts} />
           <Route exact path='/about' component={About} />
-          <Route
-            exact
-            path='/concert/:id'
-            render={props => (
-              <Concert
+          <Route exact path='/concert/:id' component={Concert} />
+          {/* render={props => ( */}
+          {/* <Concert
                 {...props}
                 getConcert={this.getConcert}
                 concert={this.props.concert}
               />
-            )}
-          />
+            )} */}
+
           {/* <ConcertsContainer /> */}
         </Switch>
       </>

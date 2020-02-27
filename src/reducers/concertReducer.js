@@ -21,6 +21,12 @@ export default (state = initialState, action) => {
         concerts: action.payload,
         loading: false
       };
+    case ADD_CONCERT:
+      return {
+        ...state,
+        concerts: [...state.concerts, action.payload],
+        loading: false
+      };
     case SET_LOADING:
       return {
         ...state,
@@ -32,6 +38,7 @@ export default (state = initialState, action) => {
         ...state,
         error: action.payload
       };
+
 
     default:
       return state;

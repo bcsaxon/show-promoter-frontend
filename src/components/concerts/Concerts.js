@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import ConcertItem from './ConcertItem';
+import ConcertList from './ConcertList';
 import { getConcerts } from '../../actions/concertActions';
 import PropTypes from 'prop-types';
 
@@ -10,7 +10,7 @@ const Concerts = ({ concert: { concerts, loading }, getConcerts }) => {
     //eslint-disable-next-line
   }, []);
 
-  if (loading || concerts === null ) {
+  if (loading || concerts === null) {
     return (
       <div>
         <h4>Loading...</h4>
@@ -27,7 +27,7 @@ const Concerts = ({ concert: { concerts, loading }, getConcerts }) => {
         <p>No concerts to show...</p>
       ) : (
         concerts.map(concert => (
-          <ConcertItem concert={concert} key={concert.id} />
+          <ConcertList concert={concert} key={concert.id} />
         ))
       )}
     </ul>

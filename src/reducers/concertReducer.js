@@ -1,5 +1,6 @@
 import {
   GET_CONCERTS,
+  GET_CONCERT,
   ADD_CONCERT,
   DELETE_CONCERT,
   SET_LOADING,
@@ -8,7 +9,7 @@ import {
 
 const initialState = {
   concerts: null,
-  current: null,
+  current_concert: null,
   loading: false,
   error: null
 };
@@ -27,6 +28,13 @@ export default (state = initialState, action) => {
         concerts: [...state.concerts, action.payload],
         loading: false
       };
+
+    case GET_CONCERT:
+      return {
+        ...state,
+        current_concert: action.payload
+      };
+
     case SET_LOADING:
       return {
         ...state,
@@ -38,7 +46,6 @@ export default (state = initialState, action) => {
         ...state,
         error: action.payload
       };
-
 
     default:
       return state;

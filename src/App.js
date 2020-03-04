@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import ConcertsContainer from './containers/ConcertsContainer';
 import ConcertInput from './components/concerts/ConcertInput';
-import Concerts from './components/concerts/Concerts';
-import Concert from './components/concerts/Concert';
+import Concerts from './components/concerts/Concerts'
+import ConcertShow from './components/concerts/ConcertShow';
 import About from './components/pages/About';
+// import ConcertList from './components/concerts/ConcertList';
 
 const App = () => {
   //Concert Detail Page Get Request //
@@ -30,15 +31,10 @@ const App = () => {
             )}
           />
           <Route exact path='/concerts' component={Concerts} />
+          {/* <Route exact path='/concerts' component={ConcertList} /> */}
+
           <Route exact path='/about' component={About} />
-          <Route exact path='/concert/:id' component={Concert} />
-          {/* render={props => ( */}
-          {/* <Concert
-                {...props}
-                getConcert={this.getConcert}
-                concert={this.props.concert}
-              />
-            )} */}
+          <Route exact path='/concert/:id' component={ConcertShow} />
 
           {/* <ConcertsContainer /> */}
         </Switch>

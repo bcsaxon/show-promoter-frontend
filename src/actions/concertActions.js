@@ -2,6 +2,7 @@ import {
   GET_CONCERTS,
   ADD_CONCERT,
   DELETE_CONCERT,
+  GET_CONCERT,
   SET_LOADING,
   LOGS_ERROR
 } from './types';
@@ -9,15 +10,15 @@ import {
 //GETS ALL CONCERTS
 export const getConcerts = () => async dispatch => {
   try {
-  setLoading();
+    setLoading();
 
-  const res = await fetch('http://localhost:3000/concerts');
-  const data = await res.json();
+    const res = await fetch('http://localhost:3000/concerts');
+    const data = await res.json();
 
-  dispatch({
-    type: GET_CONCERTS,
-    payload: data
-  });
+    dispatch({
+      type: GET_CONCERTS,
+      payload: data
+    });
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
@@ -37,7 +38,7 @@ export const addConcert = concert => async dispatch => {
       body: JSON.stringify(concert),
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        Accept: 'application/json'
       }
     });
     const data = await res.json();
@@ -54,10 +55,40 @@ export const addConcert = concert => async dispatch => {
   }
 };
 
+// export const getConcert = concert => {
+//   return {
+//     type: SHOW_CONCERT,
+//     payload: concert
+//   }
+// }
+
+// Clear Concert?
+
 //SETS LOADING TO TRUE
 
 export const setLoading = () => {
   return {
     type: SET_LOADING
   };
+};
+
+// Show Concert
+
+export const getConcert = concert => async dispatch => {
+  try {
+    setLoading();
+
+    const res = await fetch(`http://localhost:3000/concerts/${concert.id}`);
+    const data = await res.json();
+
+    dispatch({
+      type: GET_CONCERT,
+      payload: data
+    });
+  } catch (err) {
+    dispatch({
+      type: LOGS_ERROR,
+      payload: err.response.statusText
+    });
+  }
 };

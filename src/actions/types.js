@@ -4,4 +4,4 @@ export const GET_CONCERT = 'GET_CONCERT';
 export const UPDATE_CONCERT = 'UPDATE_CONCERT';
 export const DELETE_CONCERT = 'DELETE_CONCERT';
 export const SET_LOADING = 'SET_LOADING';
-export const LOGS_ERROR = 'LOGS_ERROR';
+export const CONCERTS_ERROR = 'CONCERTS_ERROR';

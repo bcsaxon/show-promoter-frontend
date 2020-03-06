@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import ConcertsContainer from './containers/ConcertsContainer';
+// import ConcertsContainer from './containers/ConcertsContainer';
 import ConcertInput from './components/concerts/ConcertInput';
 import Concerts from './components/concerts/Concerts'
 import ConcertShow from './components/concerts/ConcertShow';
 import About from './components/pages/About';
-// import ConcertList from './components/concerts/ConcertList';
 
 const App = () => {
   //Concert Detail Page Get Request //

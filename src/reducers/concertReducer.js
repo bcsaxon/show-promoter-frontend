@@ -4,12 +4,12 @@ import {
   ADD_CONCERT,
   DELETE_CONCERT,
   SET_LOADING,
-  LOGS_ERROR
+  CONCERTS_ERROR
 } from '../actions/types';
 
 const initialState = {
   concerts: null,
-  current_concert: null,
+  current_concert: {},
   loading: false,
   error: null
 };
@@ -35,12 +35,21 @@ export default (state = initialState, action) => {
         current_concert: action.payload
       };
 
+    case DELETE_CONCERT:
+      return {
+        ...state,
+        concerts: state.concerts.filter(
+          concert => concert.id !== action.payload
+        ),
+        loading: false
+      };
+
     case SET_LOADING:
       return {
         ...state,
         loading: true
       };
-    case LOGS_ERROR:
+    case CONCERTS_ERROR:
       console.error(action.payload);
       return {
         ...state,

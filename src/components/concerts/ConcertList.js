@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getConcert } from '../../actions/concertActions';
 
-
-
-
-const ConcertList = ({ concert, concert: { id, musician_name }, getConcert }) => {
+const ConcertList = ({
+  concert,
+  concert: { id, musician_name },
+  getConcert
+}) => {
   return (
     <div>
       <Link to={`/concert/${id}`}>

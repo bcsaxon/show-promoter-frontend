@@ -4,7 +4,7 @@ import {
   DELETE_CONCERT,
   GET_CONCERT,
   SET_LOADING,
-  LOGS_ERROR
+  CONCERTS_ERROR
 } from './types';
 
 //GETS ALL CONCERTS
@@ -19,10 +19,10 @@ export const getConcerts = () => async dispatch => {
       type: GET_CONCERTS,
       payload: data
     });
-  } catch (err) {
+  } catch (error) {
     dispatch({
-      type: LOGS_ERROR,
-      payload: err.response.statusText
+      type: CONCERTS_ERROR,
+      payload: error.response.statusText
     });
   }
 };
@@ -47,29 +47,12 @@ export const addConcert = concert => async dispatch => {
       type: ADD_CONCERT,
       payload: data
     });
-  } catch (err) {
+  } catch (error) {
     dispatch({
-      type: LOGS_ERROR,
-      payload: err.response.statusText
+      type: CONCERTS_ERROR,
+      payload: error.response.statusText
     });
   }
-};
-
-// export const getConcert = concert => {
-//   return {
-//     type: SHOW_CONCERT,
-//     payload: concert
-//   }
-// }
-
-// Clear Concert?
-
-//SETS LOADING TO TRUE
-
-export const setLoading = () => {
-  return {
-    type: SET_LOADING
-  };
 };
 
 // Show Concert
@@ -85,10 +68,41 @@ export const getConcert = concert => async dispatch => {
       type: GET_CONCERT,
       payload: data
     });
-  } catch (err) {
+  } catch (error) {
     dispatch({
-      type: LOGS_ERROR,
-      payload: err.response.statusText
+      type: CONCERTS_ERROR,
+      payload: error.response.statusText
     });
   }
+};
+
+//DELETE CONCERT
+
+export const deleteConcert = id => async dispatch => {
+  try {
+    setLoading();
+
+    await fetch(`http://localhost:3000/concerts/${id}`, {
+      method: 'DELETE'
+    });
+
+    dispatch({
+      type: DELETE_CONCERT,
+      payload: id
+    });
+    // dispatch(getConcerts());
+  } catch (error) {
+    dispatch({
+      type: CONCERTS_ERROR,
+      payload: error.response.statusText
+    });
+  }
+};
+
+//SETS LOADING TO TRUE
+
+export const setLoading = () => {
+  return {
+    type: SET_LOADING
+  };
 };

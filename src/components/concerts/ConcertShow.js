@@ -1,21 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+// import { getConcert } from '../../actions/concertActions';
+import { deleteConcert } from '../../actions/concertActions';
 
-const ConcertShow = ({ current_concert }) => {
-  // const concert = current_concert
-
-  // const [musician_name, setName] = useState('')
-
-  // useEffect(() => {
-  //   getConcert(concert);
-  // }, [concert]);
-
-  // componentDidMount() {
-  //   this.props.getConcert(this.props.match.params.id);
-  // }
-
-  // const { musician_name, venue, date, img_url, cost } = this.props.concert;
+const ConcertShow = ({ current_concert, deleteConcert, history }) => {
+  const onDelete = () => {
+    deleteConcert(current_concert.id);
+    history.push('/concerts');
+  };
 
   return (
     <div>
@@ -24,17 +17,19 @@ const ConcertShow = ({ current_concert }) => {
       <h4>{current_concert.venue}</h4>
       <h3>{current_concert.date}</h3>
       <h2>{current_concert.cost}</h2>
-      <button>Delete</button>
+      <button onClick={onDelete}>Delete</button>
     </div>
   );
 };
 
 ConcertShow.propTypes = {
-  current_concert: PropTypes.object
+  current_concert: PropTypes.object.isRequired,
+  deleteConcert: PropTypes.func.isRequired
+  // getConcert: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   current_concert: state.concert.current_concert
 });
 
-export default connect(mapStateToProps)(ConcertShow);
+export default connect(mapStateToProps, { deleteConcert })(ConcertShow);

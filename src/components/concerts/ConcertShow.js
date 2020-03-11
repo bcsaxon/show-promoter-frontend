@@ -3,6 +3,38 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import { getConcert } from '../../actions/concertActions';
 import { deleteConcert } from '../../actions/concertActions';
+import styled from 'styled-components';
+
+const ConcertDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  .musician-name {
+    display: flex;
+
+    font-family: sans-serif;
+    color: black;
+    text-shadow: 2px 2px 2px gray;
+    justify-content: center;
+    font-size: 40px;
+  }
+`;
+
+const Button = styled.button`
+  font-family: sans-serif;
+  font-size: 3vh;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  border: none;
+  border-radius: 10px;
+  padding: 4px 4px;
+  background: gray;
+  &:hover {
+    background: #545454;
+  }
+`;
 
 const ConcertShow = ({ current_concert, deleteConcert, history }) => {
   const onDelete = () => {
@@ -11,14 +43,23 @@ const ConcertShow = ({ current_concert, deleteConcert, history }) => {
   };
 
   return (
-    <div>
-      <h1>{current_concert.musician_name}</h1>
-      <img src={current_concert.img_url} alt='Tour Poster' />
-      <h4>{current_concert.venue}</h4>
-      <h3>{current_concert.date}</h3>
-      <h2>{current_concert.cost}</h2>
-      <button onClick={onDelete}>Delete</button>
-    </div>
+    <ConcertDiv>
+      <div className='concert'>
+        <h1 className='musician-name'>{current_concert.musician_name}</h1>
+        <img
+          className='poster'
+          src={current_concert.img_url}
+          alt='Tour Poster'
+          height={400}
+        />
+        <h4>{current_concert.venue}</h4>
+        <h3>{current_concert.date}</h3>
+        <h2>{current_concert.cost}</h2>
+        <Button className='delete-button' onClick={onDelete}>
+          Delete
+        </Button>
+      </div>
+    </ConcertDiv>
   );
 };
 

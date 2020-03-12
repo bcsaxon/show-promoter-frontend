@@ -8,10 +8,15 @@ import styled from 'styled-components';
 const ConcertDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 
-  .musician-name {
+  justify-content: center;
+  font-family: sans-serif;
+  color: black;
+  text-shadow: 2px 2px 2px gray;
+  padding: 20px;
+  
+
+  /* .musician-name {
     display: flex;
 
     font-family: sans-serif;
@@ -19,7 +24,7 @@ const ConcertDiv = styled.div`
     text-shadow: 2px 2px 2px gray;
     justify-content: center;
     font-size: 40px;
-  }
+  } */
 `;
 
 const Button = styled.button`
@@ -52,9 +57,9 @@ const ConcertShow = ({ current_concert, deleteConcert, history }) => {
           alt='Tour Poster'
           height={400}
         />
-        <h4>{current_concert.venue}</h4>
-        <h3>{current_concert.date}</h3>
-        <h2>{current_concert.cost}</h2>
+        <h3>Date: {current_concert.date}</h3>
+        <h4>Venue: {current_concert.venue}</h4>
+        <h5>Cost: {current_concert.cost}</h5>
         <Button className='delete-button' onClick={onDelete}>
           Delete
         </Button>

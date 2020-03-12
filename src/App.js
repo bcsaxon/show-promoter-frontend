@@ -3,18 +3,16 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 // import ConcertsContainer from './containers/ConcertsContainer';
 import ConcertInput from './components/concerts/ConcertInput';
-import Concerts from './components/concerts/Concerts'
+import Concerts from './components/concerts/Concerts';
 import ConcertShow from './components/concerts/ConcertShow';
 import About from './components/pages/About';
 
-const App = () => {
-  //Concert Detail Page Get Request //
-  // const getConcert = async id => {
-  //   const res = await fetch(`/concerts/${id}`);
-  //   console.log(res.data);
-  //   this.setState({ concert: res.data });
-  // };
+// const theme = {
+//   display: 'flex',
+//   align: 'center'
+// };
 
+const App = () => {
   return (
     <Router>
       <>
@@ -25,7 +23,7 @@ const App = () => {
             path='/'
             render={props => (
               <Fragment>
-                <ConcertInput />
+                <ConcertInput a />
               </Fragment>
             )}
           />

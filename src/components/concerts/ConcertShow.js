@@ -2,19 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import { getConcert } from '../../actions/concertActions';
-import { deleteConcert } from '../../actions/concertActions';
+import { deleteConcert, setCurrent } from '../../actions/concertActions';
 import styled from 'styled-components';
 
 const ConcertDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
-
+  width: 50%;
+  height: 20%;
+  padding: 2px;
+  /* border: 1px solid gray; */
+  margin: 5px auto;
   justify-content: center;
+  text-align: center;
   font-family: sans-serif;
   color: black;
   text-shadow: 2px 2px 2px gray;
-  padding: 20px;
-  
 
   /* .musician-name {
     display: flex;
@@ -32,16 +35,18 @@ const Button = styled.button`
   font-size: 3vh;
   color: white;
   text-shadow: 2px 2px 2px black;
+  padding: 4px 4px;
   border: none;
   border-radius: 4px;
-  padding: 4px 4px;
+  margin: 2px 2px;
+
   background: gray;
   &:hover {
     background: #545454;
   }
 `;
 
-const ConcertShow = ({ current_concert, deleteConcert, history }) => {
+const ConcertShow = ({ current_concert, deleteConcert, setCurrent, history }) => {
   const onDelete = () => {
     deleteConcert(current_concert.id);
     history.push('/concerts');
@@ -55,7 +60,7 @@ const ConcertShow = ({ current_concert, deleteConcert, history }) => {
           className='poster'
           src={current_concert.img_url}
           alt='Tour Poster'
-          height={400}
+          height={350}
         />
         <h3>Date: {current_concert.date}</h3>
         <h4>Venue: {current_concert.venue}</h4>
@@ -63,6 +68,7 @@ const ConcertShow = ({ current_concert, deleteConcert, history }) => {
         <Button className='delete-button' onClick={onDelete}>
           Delete
         </Button>
+        <Button onClick={() => setCurrent(current_concert)}>Update</Button>
       </div>
     </ConcertDiv>
   );
@@ -70,7 +76,8 @@ const ConcertShow = ({ current_concert, deleteConcert, history }) => {
 
 ConcertShow.propTypes = {
   current_concert: PropTypes.object.isRequired,
-  deleteConcert: PropTypes.func.isRequired
+  deleteConcert: PropTypes.func.isRequired,
+  setCurrent: PropTypes.func.isRequired,
   // getConcert: PropTypes.func.isRequired
 };
 
@@ -78,4 +85,4 @@ const mapStateToProps = state => ({
   current_concert: state.concert.current_concert
 });
 
-export default connect(mapStateToProps, { deleteConcert })(ConcertShow);
+export default connect(mapStateToProps, { deleteConcert, setCurrent })(ConcertShow);

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addConcert } from '../../actions/concertActions';
 import styled from 'styled-components';
+import { addConcert } from '../../actions/concertActions';
+import { updateConcert } from '../../actions/concertActions';
 
 const StyledForm = styled.form`
   input {
@@ -34,44 +35,7 @@ const H3 = styled.h3`
   padding: 5px;
 `;
 
-const ConcertInput = ({ addConcert }) => {
-  // state = {
-  //   musician_name: '',
-  //   date: '',
-  //   venue: '',
-  //   img_url: '',
-  //   cost: ''
-  // };
-  const [musician_name, setMusician] = useState('');
-  const [date, setDate] = useState('');
-  const [venue, setVenue] = useState('');
-  const [img_url, setImage] = useState('');
-  const [cost, setCost] = useState('');
-
-  const onSubmit = e => {
-    e.preventDefault();
-
-    const newConcert = {
-      musician_name,
-      date,
-      venue,
-      img_url,
-      cost
-    };
-
-    addConcert(newConcert);
-
-    setMusician('');
-    setDate('');
-    setVenue('');
-    setImage('');
-    setCost('');
-  };
-
-  // const onChange = e => {
-  //   this.setState({ [e.target.name]: e.target.value });
-  // };
-
+const EditConcert = ({ current, updateConcert }) => {
   return (
     <div className='concert-input'>
       <H3>Input your concert below...</H3>
@@ -117,8 +81,52 @@ const ConcertInput = ({ addConcert }) => {
   );
 };
 
-ConcertInput.propTypes = {
-  addConcert: PropTypes.func.isRequired
-};
+EditConcert.propTypes = {
+  current: PropTypes.object,
+  updateConcert: PropTypes.func.isRequired,
+}
 
-export default connect(null, { addConcert })(ConcertInput);
+const mapStateToProps = state => ({
+  current: state.concert.current
+})
+
+export default connect(mapStateToProps, { addConcert, updateConcert })(EditConcert);
+
+//   const [musician_name, setMusician] = useState('');
+//   const [date, setDate] = useState('');
+//   const [venue, setVenue] = useState('');
+//   const [img_url, setImage] = useState('');
+//   const [cost, setCost] = useState('');
+
+//   const onSubmit = e => {
+//     e.preventDefault();
+
+//     const newConcert = {
+//       musician_name,
+//       date,
+//       venue,
+//       img_url,
+//       cost
+//     };
+
+//     addConcert(newConcert);
+
+//     setMusician('');
+//     setDate('');
+//     setVenue('');
+//     setImage('');
+//     setCost('');
+//   };
+
+//   // const onChange = e => {
+//     //   this.setState({ [e.target.name]: e.target.value });
+//   // };
+
+//   return (
+
+//   );
+// };
+
+// ConcertInput.propTypes = {
+//   addConcert: PropTypes.func.isRequired
+// };

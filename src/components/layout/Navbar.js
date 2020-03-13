@@ -12,13 +12,16 @@ const StyledNavbar = styled.nav`
   color: white;
 
   height: 12vh;
+  padding: auto;
+  margin: auto;
 
   .logo {
     font-family: sans-serif;
     font-size: 7vh;
     /* align-items: left;  */
     font-weight: bold;
-    text-shadow: 3px 3px 3px black;
+    text-shadow: 5px 5px 5px black;
+    letter-spacing: 2px;
   }
 
   .nav-links {
@@ -38,7 +41,7 @@ const StyledNavbar = styled.nav`
     text-decoration: none;
     text-shadow: 2px 2px 2px black;
     &:hover {
-      color: #F9D9D9;
+      color: #f9d9d9;
     }
   }
 `;
@@ -46,7 +49,7 @@ const StyledNavbar = styled.nav`
 const Navbar = props => {
   return (
     <StyledNavbar>
-      <div className='logo'>Show Promoter</div>
+      <div className='logo'>SHOW PROMOTER</div>
       <nav>
         <h1>
           <ul className='nav-links'>

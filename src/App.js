@@ -34,6 +34,7 @@ const App = () => {
           <Route exact path='/concert/:id' component={ConcertShow} />
 
           {/* <ConcertsContainer /> */}
+          
         </Switch>
       </>
     </Router>

@@ -3,6 +3,9 @@ import {
   GET_CONCERT,
   ADD_CONCERT,
   DELETE_CONCERT,
+  UPDATE_CONCERT,
+  SET_CURRENT,
+  CLEAR_CURRENT,
   SET_LOADING,
   CONCERTS_ERROR
 } from '../actions/types';
@@ -42,6 +45,26 @@ export default (state = initialState, action) => {
           concert => concert.id !== action.payload
         ),
         loading: false
+      };
+
+    case UPDATE_CONCERT:
+      return {
+        ...state,
+        concerts: state.concert.map(concert =>
+          concert.id === action.payload.id ? action.payload : concert
+        )
+      };
+
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload
+      };
+
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null
       };
 
     case SET_LOADING:

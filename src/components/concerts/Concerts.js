@@ -3,6 +3,15 @@ import { connect } from 'react-redux';
 import ConcertList from './ConcertList';
 import { getConcerts } from '../../actions/concertActions';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const H2 = styled.h2`
+  text-align: center;
+  font-family: sans-serif;
+  color: black;
+  text-shadow: 2px 2px 2px gray;
+  text-decoration: none;
+`;
 
 const Concerts = ({ concert: { concerts, loading }, getConcerts }) => {
   useEffect(() => {
@@ -20,9 +29,8 @@ const Concerts = ({ concert: { concerts, loading }, getConcerts }) => {
 
   return (
     <ul>
-      <li>
-        <h4>All Concerts</h4>
-      </li>
+      <H2>All Concerts</H2>
+
       {!loading && concerts.length === 0 ? (
         <p>No concerts to show...</p>
       ) : (

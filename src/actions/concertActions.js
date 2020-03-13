@@ -1,10 +1,13 @@
 import {
   GET_CONCERTS,
   ADD_CONCERT,
-  DELETE_CONCERT,
   GET_CONCERT,
+  DELETE_CONCERT,
+  UPDATE_CONCERT,
   SET_LOADING,
-  CONCERTS_ERROR
+  CONCERTS_ERROR,
+  SET_CURRENT,
+  CLEAR_CURRENT
 } from './types';
 
 //GETS ALL CONCERTS
@@ -90,6 +93,53 @@ export const deleteConcert = id => async dispatch => {
       type: DELETE_CONCERT,
       payload: id
     });
+    // dispatch(getConcerts());
+  } catch (error) {
+    dispatch({
+      type: CONCERTS_ERROR,
+      payload: error.response.statusText
+    });
+  }
+};
+
+// SET CURRENT CONCERT
+
+export const setCurrent = concert => {
+  return {
+    type: SET_CURRENT,
+    payload: concert
+  };
+};
+
+// CLEAR CURRENT CONCERT
+
+export const clearCurrent = () => {
+  return {
+    type: CLEAR_CURRENT
+  };
+};
+
+// UPDATE CONCERT
+
+export const updateConcert = concert => async dispatch => {
+  try {
+    setLoading();
+
+    const res = await fetch(`http://localhost:3000/concerts/${concert.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(concert),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const data = res.json();
+
+    dispatch({
+      type: UPDATE_CONCERT,
+      payload: data
+    });
+
     // dispatch(getConcerts());
   } catch (error) {
     dispatch({

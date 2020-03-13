@@ -5,3 +5,5 @@ export const UPDATE_CONCERT = 'UPDATE_CONCERT';
 export const DELETE_CONCERT = 'DELETE_CONCERT';
 export const SET_LOADING = 'SET_LOADING';
 export const CONCERTS_ERROR = 'CONCERTS_ERROR';
+export const SET_CURRENT = 'SET_CURRENT';
+export const CLEAR_CURRENT = 'CLEAR_CURRENT';

@@ -2,6 +2,42 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addConcert } from '../../actions/concertActions';
+import styled from 'styled-components';
+
+const StyledForm = styled.form`
+  input {
+    display: flex;
+    /* justify-content: center; */
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 2px solid grey;
+    outline: none;
+    :hover {
+      border: 2px solid black;
+    }
+    box-sizing: border-box;
+    color: black;
+  }
+  /* input[type='submit'] :hover {
+    background-color: brown;
+    color: white;
+    cursor: pointer;
+  } */
+`;
+
+const H3 = styled.h3`
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: 8vh;
+  color: black;
+  text-shadow: 2px 2px 2px gray;
+  padding: 5px;
+`;
 
 const ConcertInput = ({ addConcert }) => {
   // state = {
@@ -43,8 +79,9 @@ const ConcertInput = ({ addConcert }) => {
 
   return (
     <div className='concert-input'>
-      <h3>Input your concert below!</h3>
-      <form className='concert-input-form' onSubmit={onSubmit}>
+      <H3>Input your concert below!</H3>
+
+      <StyledForm className='concert-input-form' onSubmit={onSubmit}>
         <input
           type='text'
           name='musician_name'
@@ -80,7 +117,7 @@ const ConcertInput = ({ addConcert }) => {
           onChange={e => setCost(e.target.value)}
         />
         <input type='submit' name='submit' />
-      </form>
+      </StyledForm>
     </div>
   );
 };

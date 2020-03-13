@@ -11,7 +11,6 @@ const StyledAbout = styled.div`
   color: black;
   text-shadow: 2px 2px 2px gray;
   padding: 5px;
-  border: 1px solid gray;
 
   .title {
     font-size: 45px;
@@ -21,7 +20,6 @@ const StyledAbout = styled.div`
   }
 
   .bio {
-   
     font-size: 25px;
     justify-content: center;
     vertical-align: middle;
@@ -62,7 +60,8 @@ const About = () => {
       <Fragment>
         <h1 className='title'>About This App</h1>
         <p className='bio'>
-          This app allows fans and bands to post upcoming concerts.
+          This app allows fans and bands to post upcoming concerts. Simple,
+          easy, and clean.
         </p>
         <p className='version'>Version 1.0.0</p>
       </Fragment>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // import { getConcert } from '../../actions/concertActions';
 import { deleteConcert, setCurrent } from '../../actions/concertActions';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 const ConcertDiv = styled.div`
   display: flex;
@@ -64,11 +65,11 @@ const ConcertShow = ({ current_concert, deleteConcert, setCurrent, history }) =>
         />
         <h3>Date: {current_concert.date}</h3>
         <h4>Venue: {current_concert.venue}</h4>
-        <h5>Cost: {current_concert.cost}</h5>
+        <h5>Cost: {current_concert.cost}</h5> 
         <Button className='delete-button' onClick={onDelete}>
           Delete
         </Button>
-        <Button onClick={() => setCurrent(current_concert)}>Update</Button>
+        <Link to='/editconcert'><Button onClick={() => setCurrent(current_concert)}>Update</Button></Link> 
       </div>
     </ConcertDiv>
   );

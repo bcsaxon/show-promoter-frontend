@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { addConcert } from '../../actions/concertActions';
 import { updateConcert } from '../../actions/concertActions';
 
+///STYLED
 const StyledForm = styled.form`
   input {
     display: flex;
@@ -36,9 +36,46 @@ const H3 = styled.h3`
 `;
 
 const EditConcert = ({ current, updateConcert }) => {
+  const [musician_name, setMusician] = useState('');
+  const [date, setDate] = useState('');
+  const [venue, setVenue] = useState('');
+  const [img_url, setImage] = useState('');
+  const [cost, setCost] = useState('');
+
+  useEffect(() => {
+    if (current) {
+      setMusician(current.musician_name);
+      setDate(current.date);
+      setVenue(current.venue);
+      setImage(current.img_url);
+      setCost(current.cost);
+    }
+  }, [current]);
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const updatedConcert = {
+
+      musician_name,
+      date,
+      venue,
+      img_url,
+      cost,
+      id: current.id
+    };
+
+    updateConcert(updatedConcert);
+
+    setMusician('');
+    setDate('');
+    setVenue('');
+    setImage('');
+    setCost('');
+  };
+
   return (
     <div className='concert-input'>
-      <H3>Input your concert below...</H3>
+      <H3>Edit Your Concert...</H3>
 
       <StyledForm className='concert-input-form' onSubmit={onSubmit}>
         <input
@@ -83,50 +120,11 @@ const EditConcert = ({ current, updateConcert }) => {
 
 EditConcert.propTypes = {
   current: PropTypes.object,
-  updateConcert: PropTypes.func.isRequired,
-}
+  updateConcert: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   current: state.concert.current
-})
+});
 
-export default connect(mapStateToProps, { addConcert, updateConcert })(EditConcert);
-
-//   const [musician_name, setMusician] = useState('');
-//   const [date, setDate] = useState('');
-//   const [venue, setVenue] = useState('');
-//   const [img_url, setImage] = useState('');
-//   const [cost, setCost] = useState('');
-
-//   const onSubmit = e => {
-//     e.preventDefault();
-
-//     const newConcert = {
-//       musician_name,
-//       date,
-//       venue,
-//       img_url,
-//       cost
-//     };
-
-//     addConcert(newConcert);
-
-//     setMusician('');
-//     setDate('');
-//     setVenue('');
-//     setImage('');
-//     setCost('');
-//   };
-
-//   // const onChange = e => {
-//     //   this.setState({ [e.target.name]: e.target.value });
-//   // };
-
-//   return (
-
-//   );
-// };
-
-// ConcertInput.propTypes = {
-//   addConcert: PropTypes.func.isRequired
-// };
+export default connect(mapStateToProps, { updateConcert })(EditConcert);

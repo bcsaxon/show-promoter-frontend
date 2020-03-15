@@ -6,6 +6,7 @@ import ConcertInput from './components/concerts/ConcertInput';
 import Concerts from './components/concerts/Concerts';
 import ConcertShow from './components/concerts/ConcertShow';
 import About from './components/pages/About';
+import EditConcert from './components/concerts/EditConcert';
 
 // const theme = {
 //   display: 'flex',
@@ -23,7 +24,7 @@ const App = () => {
             path='/'
             render={props => (
               <Fragment>
-                <ConcertInput a />
+                <ConcertInput />
               </Fragment>
             )}
           />
@@ -32,9 +33,8 @@ const App = () => {
 
           <Route exact path='/about' component={About} />
           <Route exact path='/concert/:id' component={ConcertShow} />
-
+          <Route exact path='/editconcert' component={EditConcert} />
           {/* <ConcertsContainer /> */}
-          
         </Switch>
       </>
     </Router>

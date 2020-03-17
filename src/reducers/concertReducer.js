@@ -50,7 +50,7 @@ export default (state = initialState, action) => {
     case UPDATE_CONCERT:
       return {
         ...state,
-        concerts: state.concert.map(concert =>
+        concerts: state.concerts.map(concert =>
           concert.id === action.payload.id ? action.payload : concert
         )
       };
@@ -72,6 +72,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: true
       };
+      
     case CONCERTS_ERROR:
       console.error(action.payload);
       return {

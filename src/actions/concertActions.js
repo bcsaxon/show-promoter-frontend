@@ -126,7 +126,7 @@ export const updateConcert = concert => async dispatch => {
     setLoading();
 
     const res = await fetch(`http://localhost:3000/concerts/${concert.id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       body: JSON.stringify(concert),
       headers: {
         'Content-Type': 'application/json'
@@ -142,6 +142,7 @@ export const updateConcert = concert => async dispatch => {
 
     // dispatch(getConcerts());
   } catch (error) {
+    console.log(error)
     dispatch({
       type: CONCERTS_ERROR,
       payload: error.response.statusText

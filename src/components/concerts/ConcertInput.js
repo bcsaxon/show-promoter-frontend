@@ -35,13 +35,7 @@ const H3 = styled.h3`
 `;
 
 const ConcertInput = ({ addConcert }) => {
-  // state = {
-  //   musician_name: '',
-  //   date: '',
-  //   venue: '',
-  //   img_url: '',
-  //   cost: ''
-  // };
+ 
   const [musician_name, setMusician] = useState('');
   const [date, setDate] = useState('');
   const [venue, setVenue] = useState('');

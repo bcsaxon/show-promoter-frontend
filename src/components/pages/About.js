@@ -33,27 +33,6 @@ const StyledAbout = styled.div`
   }
 `;
 
-// const H1 = styled.h1`
-//   font-size: 45px;
-//   justify-content: center;
-//   /* vertical-align: middle; */
-//   padding: 10px;
-// `;
-// const P1 = styled.p`
-//   font-size: 20px;
-//   /* text-align: justify; */
-//   justify-content: center;
-//   /* vertical-align: middle; */
-//   padding: 18px;
-// `;
-
-// const P2 = styled.p`
-//   font-size: 10px;
-//   text-align: justify;
-//   /* justify-content: center; */
-//   /* vertical-align: middle; */
-//   padding: 30px;
-// `;
 const About = () => {
   return (
     <StyledAbout>

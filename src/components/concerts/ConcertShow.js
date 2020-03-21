@@ -19,16 +19,6 @@ const ConcertDiv = styled.div`
   font-family: sans-serif;
   color: black;
   text-shadow: 2px 2px 2px gray;
-
-  /* .musician-name {
-    display: flex;
-
-    font-family: sans-serif;
-    color: black;
-    text-shadow: 2px 2px 2px gray;
-    justify-content: center;
-    font-size: 40px;
-  } */
 `;
 
 const Button = styled.button`
@@ -79,7 +69,6 @@ ConcertShow.propTypes = {
   current_concert: PropTypes.object.isRequired,
   deleteConcert: PropTypes.func.isRequired,
   setCurrent: PropTypes.func.isRequired,
-  // getConcert: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

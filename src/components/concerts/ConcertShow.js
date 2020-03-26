@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // import { getConcert } from '../../actions/concertActions';
 import { deleteConcert, setCurrent } from '../../actions/concertActions';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const ConcertDiv = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ const ConcertDiv = styled.div`
   text-align: center;
   font-family: sans-serif;
   color: black;
-  text-shadow: 2px 2px 2px gray;
+  text-shadow: 1px 1px 1px gray;
 `;
 
 const Button = styled.button`
@@ -37,7 +37,12 @@ const Button = styled.button`
   }
 `;
 
-const ConcertShow = ({ current_concert, deleteConcert, setCurrent, history }) => {
+const ConcertShow = ({
+  current_concert,
+  deleteConcert,
+  setCurrent,
+  history
+}) => {
   const onDelete = () => {
     deleteConcert(current_concert.id);
     history.push('/concerts');
@@ -55,11 +60,13 @@ const ConcertShow = ({ current_concert, deleteConcert, setCurrent, history }) =>
         />
         <h3>Date: {current_concert.date}</h3>
         <h4>Venue: {current_concert.venue}</h4>
-        <h5>Cost: {current_concert.cost}</h5> 
+        <h5>Cost: {current_concert.cost}</h5>
         <Button className='delete-button' onClick={onDelete}>
           Delete
         </Button>
-        <Link to='/editconcert'><Button onClick={() => setCurrent(current_concert)}>Update</Button></Link> 
+        <Link to='/editconcert'>
+          <Button onClick={() => setCurrent(current_concert)}>Update</Button>
+        </Link>
       </div>
     </ConcertDiv>
   );
@@ -68,11 +75,13 @@ const ConcertShow = ({ current_concert, deleteConcert, setCurrent, history }) =>
 ConcertShow.propTypes = {
   current_concert: PropTypes.object.isRequired,
   deleteConcert: PropTypes.func.isRequired,
-  setCurrent: PropTypes.func.isRequired,
+  setCurrent: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   current_concert: state.concert.current_concert
 });
 
-export default connect(mapStateToProps, { deleteConcert, setCurrent })(ConcertShow);
+export default connect(mapStateToProps, { deleteConcert, setCurrent })(
+  ConcertShow
+);

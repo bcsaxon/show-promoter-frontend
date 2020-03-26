@@ -20,7 +20,8 @@ const StyledAbout = styled.div`
   }
 
   .bio {
-    font-size: 25px;
+    font-size: 20px;
+    text-align: center;
     justify-content: center;
     vertical-align: middle;
     padding: 10px;
@@ -39,8 +40,9 @@ const About = () => {
       <Fragment>
         <h1 className='title'>About This App</h1>
         <p className='bio'>
-          This app allows fans and bands to post upcoming concerts. Simple,
-          easy, and clean.
+          Show Promoter allows fans and bands to post upcoming concerts,
+          inspired by other DIY sites like: Oh My Rockness, Show List Austin,
+          and Songkick.
         </p>
         <p className='version'>Version 1.0.0</p>
       </Fragment>

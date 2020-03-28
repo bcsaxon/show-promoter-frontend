@@ -35,7 +35,6 @@ const H3 = styled.h3`
 `;
 
 const ConcertInput = ({ addConcert }) => {
- 
   const [musician_name, setMusician] = useState('');
   const [date, setDate] = useState('');
   const [venue, setVenue] = useState('');

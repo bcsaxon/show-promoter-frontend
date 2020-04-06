@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 // import ConcertsContainer from './containers/ConcertsContainer';
@@ -19,18 +19,9 @@ const App = () => {
       <>
         <Navbar />
         <Switch>
-          <Route
-            exact
-            path='/'
-            render={props => (
-              <Fragment>
-                <ConcertInput />
-              </Fragment>
-            )}
-          />
+          <Route exact path='/' component={ConcertInput} />
           <Route exact path='/concerts' component={Concerts} />
           {/* <Route exact path='/concerts' component={ConcertList} /> */}
-
           <Route exact path='/about' component={About} />
           <Route exact path='/concert/:id' component={ConcertShow} />
           <Route exact path='/editconcert' component={EditConcert} />

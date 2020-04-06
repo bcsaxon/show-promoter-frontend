@@ -3,5 +3,4 @@ import concertReducer from './concertReducer';
 
 export default combineReducers({
   concert: concertReducer
-
 });

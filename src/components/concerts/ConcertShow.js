@@ -22,6 +22,8 @@ const ConcertDiv = styled.div`
 `;
 
 const Button = styled.button`
+  /* display: flex;
+  flex-wrap: wrap; */
   font-family: sans-serif;
   font-size: 3vh;
   color: white;

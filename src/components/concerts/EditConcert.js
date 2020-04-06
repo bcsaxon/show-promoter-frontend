@@ -75,7 +75,7 @@ const EditConcert = ({ current, updateConcert }) => {
 
   return (
     <div className='concert-input'>
-      <H3>Edit Your Concert...</H3>
+      <H3>Edit your concert...</H3>
 
       <StyledForm className='concert-input-form' onSubmit={onSubmit}>
         <input

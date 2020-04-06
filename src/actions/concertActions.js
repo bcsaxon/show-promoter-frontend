@@ -58,7 +58,7 @@ export const addConcert = concert => async dispatch => {
   }
 };
 
-// Show Concert
+// SHOW CONCERT
 
 export const getConcert = concert => async dispatch => {
   try {

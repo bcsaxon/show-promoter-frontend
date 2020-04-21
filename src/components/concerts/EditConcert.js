@@ -4,11 +4,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { updateConcert } from '../../actions/concertActions';
 
-///STYLED
 const StyledForm = styled.form`
   input {
     display: flex;
-    /* justify-content: center; */
     width: 50%;
     margin: 10px auto;
     padding: 10px;
@@ -51,17 +49,16 @@ const EditConcert = ({ current, updateConcert }) => {
       setCost(current.cost);
     }
   }, [current]);
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     const updatedConcert = {
-
       musician_name,
       date,
       venue,
       img_url,
       cost,
-      id: current.id
+      id: current.id,
     };
 
     updateConcert(updatedConcert);
@@ -83,34 +80,34 @@ const EditConcert = ({ current, updateConcert }) => {
           name='musician_name'
           placeholder='Musician...'
           value={musician_name}
-          onChange={e => setMusician(e.target.value)}
+          onChange={(e) => setMusician(e.target.value)}
         />
         <input
           type='text'
           name='venue'
           placeholder='Venue...'
           value={venue}
-          onChange={e => setVenue(e.target.value)}
+          onChange={(e) => setVenue(e.target.value)}
         />
         <input
           type='date'
           name='date'
           value={date}
-          onChange={e => setDate(e.target.value)}
+          onChange={(e) => setDate(e.target.value)}
         />
         <input
           type='text'
           name='img_url'
           placeholder='Poster URL...'
           value={img_url}
-          onChange={e => setImage(e.target.value)}
+          onChange={(e) => setImage(e.target.value)}
         />
         <input
           type='text'
           name='cost'
           placeholder='Cost...'
           value={cost}
-          onChange={e => setCost(e.target.value)}
+          onChange={(e) => setCost(e.target.value)}
         />
         <input type='submit' name='submit' />
       </StyledForm>
@@ -120,11 +117,11 @@ const EditConcert = ({ current, updateConcert }) => {
 
 EditConcert.propTypes = {
   current: PropTypes.object,
-  updateConcert: PropTypes.func.isRequired
+  updateConcert: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  current: state.concert.current
+const mapStateToProps = (state) => ({
+  current: state.concert.current,
 });
 
 export default connect(mapStateToProps, { updateConcert })(EditConcert);

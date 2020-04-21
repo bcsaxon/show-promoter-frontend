@@ -7,7 +7,6 @@ import styled from 'styled-components';
 const StyledForm = styled.form`
   input {
     display: flex;
-    /* justify-content: center; */
     width: 50%;
     margin: 10px auto;
     padding: 10px;
@@ -41,7 +40,7 @@ const ConcertInput = ({ addConcert }) => {
   const [img_url, setImage] = useState('');
   const [cost, setCost] = useState('');
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     const newConcert = {
@@ -49,7 +48,7 @@ const ConcertInput = ({ addConcert }) => {
       date,
       venue,
       img_url,
-      cost
+      cost,
     };
 
     addConcert(newConcert);
@@ -61,10 +60,6 @@ const ConcertInput = ({ addConcert }) => {
     setCost('');
   };
 
-  // const onChange = e => {
-  //   this.setState({ [e.target.name]: e.target.value });
-  // };
-
   return (
     <div className='concert-input'>
       <H3>Input your concert below...</H3>
@@ -75,34 +70,34 @@ const ConcertInput = ({ addConcert }) => {
           name='musician_name'
           placeholder='Musician...'
           value={musician_name}
-          onChange={e => setMusician(e.target.value)}
+          onChange={(e) => setMusician(e.target.value)}
         />
         <input
           type='text'
           name='venue'
           placeholder='Venue...'
           value={venue}
-          onChange={e => setVenue(e.target.value)}
+          onChange={(e) => setVenue(e.target.value)}
         />
         <input
           type='date'
           name='date'
           value={date}
-          onChange={e => setDate(e.target.value)}
+          onChange={(e) => setDate(e.target.value)}
         />
         <input
           type='text'
           name='img_url'
           placeholder='Poster URL...'
           value={img_url}
-          onChange={e => setImage(e.target.value)}
+          onChange={(e) => setImage(e.target.value)}
         />
         <input
           type='text'
           name='cost'
           placeholder='Cost...'
           value={cost}
-          onChange={e => setCost(e.target.value)}
+          onChange={(e) => setCost(e.target.value)}
         />
         <input type='submit' name='submit' />
       </StyledForm>
@@ -111,7 +106,7 @@ const ConcertInput = ({ addConcert }) => {
 };
 
 ConcertInput.propTypes = {
-  addConcert: PropTypes.func.isRequired
+  addConcert: PropTypes.func.isRequired,
 };
 
 export default connect(null, { addConcert })(ConcertInput);

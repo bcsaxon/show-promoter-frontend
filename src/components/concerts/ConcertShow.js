@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { getConcert } from '../../actions/concertActions';
 import { deleteConcert, setCurrent } from '../../actions/concertActions';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -12,7 +11,6 @@ const ConcertDiv = styled.div`
   width: 50%;
   height: 20%;
   padding: 2px;
-  /* border: 1px solid gray; */
   margin: 5px auto;
   justify-content: center;
   text-align: center;
@@ -22,8 +20,6 @@ const ConcertDiv = styled.div`
 `;
 
 const Button = styled.button`
-  /* display: flex;
-  flex-wrap: wrap; */
   font-family: sans-serif;
   font-size: 3vh;
   color: white;
@@ -43,7 +39,7 @@ const ConcertShow = ({
   current_concert,
   deleteConcert,
   setCurrent,
-  history
+  history,
 }) => {
   const onDelete = () => {
     deleteConcert(current_concert.id);
@@ -77,11 +73,11 @@ const ConcertShow = ({
 ConcertShow.propTypes = {
   current_concert: PropTypes.object.isRequired,
   deleteConcert: PropTypes.func.isRequired,
-  setCurrent: PropTypes.func.isRequired
+  setCurrent: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  current_concert: state.concert.current_concert
+const mapStateToProps = (state) => ({
+  current_concert: state.concert.current_concert,
 });
 
 export default connect(mapStateToProps, { deleteConcert, setCurrent })(

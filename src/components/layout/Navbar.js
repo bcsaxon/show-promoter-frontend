@@ -18,7 +18,6 @@ const StyledNavbar = styled.nav`
   .logo {
     font-family: sans-serif;
     font-size: 7vh;
-    /* align-items: left;  */
     font-weight: bold;
     text-shadow: 5px 5px 5px black;
     letter-spacing: 2px;

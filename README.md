@@ -1,4 +1,12 @@
-SHOW PROMOTER
+SHOW PROMOTER version 1.0.0 
+
+Tech used:
+-React
+-Redux
+-React-Router
+-React Hooks
+-RoR
+-Style-Components
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

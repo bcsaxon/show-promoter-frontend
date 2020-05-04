@@ -1,4 +1,4 @@
-SHOW PROMOTER version 1.0.0 
+** SHOW PROMOTER version 1.0.0 ** 
 
 Tech used:
 -React

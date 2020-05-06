@@ -1,4 +1,4 @@
-** SHOW PROMOTER version 1.0.0 ** 
+** SHOW PROMOTER version 1.0.0 **
 
 Tech used:
 -React
@@ -8,7 +8,7 @@ Tech used:
 -RoR
 -Style-Components
 
-DIY inspired App.
+DIY inspired web app for users to post upcoming concerts.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

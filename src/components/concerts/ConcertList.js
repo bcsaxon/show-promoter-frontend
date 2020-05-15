@@ -16,7 +16,7 @@ const StyledDiv = styled.div`
 const ConcertList = ({
   concert,
   concert: { id, musician_name },
-  getConcert
+  getConcert,
 }) => {
   return (
     <StyledDiv>
@@ -29,7 +29,7 @@ const ConcertList = ({
 
 ConcertList.propTypes = {
   concert: PropTypes.object.isRequired,
-  getConcert: PropTypes.func.isRequired
+  getConcert: PropTypes.func.isRequired,
 };
 
 export default connect(null, { getConcert })(ConcertList);

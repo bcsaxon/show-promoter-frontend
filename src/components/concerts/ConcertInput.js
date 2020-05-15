@@ -34,20 +34,20 @@ const H3 = styled.h3`
 `;
 
 const ConcertInput = ({ addConcert }) => {
-  const [musicianName, setMusician] = useState('');
+  const [musician_name, setMusician] = useState('');
   const [date, setDate] = useState('');
   const [venue, setVenue] = useState('');
-  const [imgUrl, setImage] = useState('');
+  const [img_url, setImage] = useState('');
   const [cost, setCost] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     const newConcert = {
-      musicianName,
+      musician_name,
       date,
       venue,
-      imgUrl,
+      img_url,
       cost,
     };
 
@@ -67,9 +67,9 @@ const ConcertInput = ({ addConcert }) => {
       <StyledForm className='concert-input-form' onSubmit={onSubmit}>
         <input
           type='text'
-          name='musicianName'
+          name='musician_name'
           placeholder='Musician...'
-          value={musicianName}
+          value={musician_name}
           onChange={(e) => setMusician(e.target.value)}
         />
         <input
@@ -87,9 +87,9 @@ const ConcertInput = ({ addConcert }) => {
         />
         <input
           type='text'
-          name='imgUrl'
+          name='img_url'
           placeholder='Poster URL...'
-          value={imgUrl}
+          value={img_url}
           onChange={(e) => setImage(e.target.value)}
         />
         <input

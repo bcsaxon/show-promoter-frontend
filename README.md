@@ -1,11 +1,22 @@
-SHOW PROMOTER version 1.0.0 \*
+## SHOW PROMOTER version 1.0.0
 
-Tech used:
-• React
-• Redux
-• React-Router
-• React Hooks
-• RoR
-• Style-Components
+![Landing Page](/frontend/public/SPHome.png)
 
-DIY inspired web app for users to post upcoming concerts.
+<!-- Format: ![Alt Text](url) -->
+
+<!-- <img
+  src="frontend/public/SPHome.png"
+  alt="Landing Page"
+/> -->
+
+## Tech used:
+
+- React
+
+- Redux
+- React-Router
+- React Hooks
+- RoR
+- Style-Components
+
+# DIY inspired web app for users to post upcoming concerts.

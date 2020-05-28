@@ -2,13 +2,6 @@
 
 ![Landing Page](/frontend/public/SPHome.png)
 
-<!-- Format: ![Alt Text](url) -->
-
-<!-- <img
-  src="frontend/public/SPHome.png"
-  alt="Landing Page"
-/> -->
-
 ## Tech used:
 
 - React

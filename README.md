@@ -2,11 +2,9 @@
 
 ![Landing Page](/frontend/public/SPHome.png)
 
-
 ## Tech used:
 
 - React
-
 - Redux
 - React-Router
 - React Hooks

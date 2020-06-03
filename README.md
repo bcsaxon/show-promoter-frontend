@@ -2,7 +2,10 @@
 
 ![Landing Page](/frontend/public/SPHome.png)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 572a1479fa4117bc6c7309bafa64d51a5e3ce0f2
 ## Tech used:
 
 - React

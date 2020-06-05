@@ -1,6 +1,6 @@
 ## SHOW PROMOTER version 1.0.0
 
-![Landing Page](/frontend/public/SPHome.png)
+![Landing Page](/public/SPHome.png)
 
 ## Tech used:
 
